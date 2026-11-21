@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Three interactive labs that show vulnerable and fixed behavior side by side.">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>Web Security Sandbox · Ghurir</title>
+  <link rel="icon" type="image/png" href="./assets/icon.png">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">&gt;_</span>
+        <span>Ghurir</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="./index.html" aria-current="page">Home</a>
+        <a href="./idor.html">IDOR</a>
+        <a href="./open-redirect.html">Open Redirect</a>
+        <a href="./race-condition.html">Race Condition</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap home" id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-label">Web security sandbox</p>
+        <h1 id="hero-title">See the bug.<br>Test the fix.</h1>
+        <p>Run a payload, inspect the vulnerable code, and replay the same input against the fix.</p>
+        <a class="button hero-button" href="#labs">Explore the labs</a>
+      </div>
+      <div class="hero-example" aria-label="Example of an IDOR request">
+        <div class="hero-example-label">Same request, different result</div>
+        <code class="hero-request"><span>GET</span> /invoices/102</code>
+        <div class="hero-outcomes">
+          <div class="hero-outcome">
+            <span>Vulnerable</span>
+            <strong class="hero-open">200 OK</strong>
+            <p>Another user’s invoice is returned.</p>
+          </div>
+          <div class="hero-outcome">
+            <span>Fixed</span>
+            <strong class="hero-blocked">403 Forbidden</strong>
+            <p>The ownership check blocks access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-list" id="labs" aria-labelledby="labs-title">
+      <h2 id="labs-title">Choose a lab</h2>
+      <div class="lab-grid">
+        <a class="lab-card" data-card="idor" href="./idor.html">
+          <span class="lab-symbol" aria-hidden="true">ID</span>
+          <span class="card-cwe">CWE-639</span>
+          <h3>IDOR</h3>
+          <p>Read or change another user’s invoice when ownership goes unchecked.</p>
+          <span class="card-link">Open lab</span>
+        </a>
+        <a class="lab-card" data-card="open-redirect" href="./open-redirect.html">
+          <span class="lab-symbol" aria-hidden="true">302</span>
+          <span class="card-cwe">CWE-601</span>
+          <h3>Open Redirect</h3>
+          <p>Compare a direct external link with a destination disguised behind @.</p>
+          <span class="card-link">Open lab</span>
+        </a>
+        <a class="lab-card" data-card="race-condition" href="./race-condition.html">
+          <span class="lab-symbol" aria-hidden="true">A∥B</span>
+          <span class="card-cwe">CWE-362</span>
+          <h3>Race Condition</h3>
+          <p>Race a one-use coupon or spend the same wallet credit twice.</p>
+          <span class="card-link">Open lab</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="./index.html">Ghurir</a>
+      <span>Browser simulations with sample data.</span>
+    </div>
+  </footer>
+</body>
+</html>
